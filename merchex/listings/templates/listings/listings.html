@@ -1,0 +1,16 @@
+<html>
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<!-- TODO : listings -->
+
+<p>J'ai {{ listings|length }} listings </p>
+
+<ul>
+    {% for listing in listings %}
+    <li> {{ listing.title }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
