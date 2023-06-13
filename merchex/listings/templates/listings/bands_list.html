@@ -8,12 +8,12 @@
 
 <p>J'ai {{ bands|length }} groupes préférés.</p>
 <p>
-    J'ai..
+
     {% if bands|length < 5 %} peu de {% elif bands|length < 10 %} quelques {% else %} beaucoup de {% endif %} groupes
         préférés. </p>
         <ul>
             {% for band in bands %}
-            <li> {{ band.name }}</li>
+            <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></li>
             {% endfor %}
         </ul>
         {% endblock %}

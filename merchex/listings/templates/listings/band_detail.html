@@ -1,0 +1,8 @@
+{% extends 'listings/base.html' %}
+{% block title %} Details {% endblock %}
+{% block content %}
+<h2>L'identifiant est {{ id }}</h2>
+<p>{{ band.biography }}</p>
+
+<a href="{% url 'band-list' %}">Retour à tous les groupes</a>
+{% endblock %}

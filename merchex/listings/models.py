@@ -34,6 +34,7 @@ class Band(models.Model):
 
 
 class Listing(models.Model):
+    band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=100)
     description = models.CharField(default='', max_length=100)
     sold = models.BooleanField(default=False)

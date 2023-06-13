@@ -12,14 +12,28 @@ navigation = [
 ]
 
 
-def hello(request):
+def bands_list(request):
     bands = Band.objects.all()
-    return render(request, 'listings/hello.html', {'bands': bands, 'nav': navigation})
+    return render(request, 'listings/bands_list.html', {'bands': bands, 'nav': navigation})
+
+
+def band_detail(request, id):
+    band = Band.objects.get(id=id)
+    return render(request,
+                  'listings/band_detail.html',
+                  {'band': band, 'id': id, 'nav': navigation})  # nous passons l'id au modèle
 
 
 def listings(request):
     listings = Listing.objects.all()
     return render(request, 'listings/listings.html', {'listings': listings, 'nav': navigation})
+
+
+def listing_detail(request, id):
+    listing = Listing.objects.get(id=id)
+    return render(request,
+                  'listings/listing_detail.html',
+                  {'listing': listing, 'id': id, 'nav': navigation})
 
 
 def about(request):
